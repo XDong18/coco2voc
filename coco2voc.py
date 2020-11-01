@@ -27,13 +27,13 @@ def coco2voc(anns_file, target_folder, n=None, compress=True):
         assert type(n) == int, "n must be an int"
         n = min(n, len(coco_imgs))
 
-    instance_target_path = os.path.join(target_folder, 'instance_labels')
+    # instance_target_path = os.path.join(target_folder, 'instance_labels')
     class_target_path = os.path.join(target_folder, 'class_labels')
-    id_target_path = os.path.join(target_folder, 'id_labels')
+    # id_target_path = os.path.join(target_folder, 'id_labels')
 
-    os.makedirs(instance_target_path, exist_ok=True)
+    # os.makedirs(instance_target_path, exist_ok=True)
     os.makedirs(class_target_path, exist_ok=True)
-    os.makedirs(id_target_path, exist_ok=True)
+    # os.makedirs(id_target_path, exist_ok=True)
 
     image_id_list = open(os.path.join(target_folder, 'images_ids.txt'), 'a+')
     start = time.time()
@@ -45,15 +45,15 @@ def coco2voc(anns_file, target_folder, n=None, compress=True):
         if not anns:
             continue
 
-        class_seg, instance_seg, id_seg = annsToSeg(anns, coco_instance)
+        class_seg = annsToSeg(anns, coco_instance)
 
         Image.fromarray(class_seg).convert("L").save(class_target_path + '/' + str(img) + '.png')
-        Image.fromarray(instance_seg).convert("L").save(instance_target_path + '/' + str(img) + '.png')
+        # Image.fromarray(instance_seg).convert("L").save(instance_target_path + '/' + str(img) + '.png')
         
-        if compress:
-            np.savez_compressed(os.path.join(id_target_path, str(img)), id_seg)
-        else:
-            np.save(os.path.join(id_target_path, str(img)+'.npy'), id_seg)
+        # if compress:
+        #     np.savez_compressed(os.path.join(id_target_path, str(img)), id_seg)
+        # else:
+        #     np.save(os.path.join(id_target_path, str(img)+'.npy'), id_seg)
 
         image_id_list.write(str(img)+'\n')
 
