@@ -4,8 +4,8 @@ from PIL import Image
 
 if __name__ == '__main__':
     # !!Change paths to your local machine!!
-    annotations_file = '/shared/xudongliu/bdd100k/labels/bdd100k_labels_images_det_coco_train.json'
-    labels_target_folder = '/shared/xudongliu/bdd100k/labels/voc_train'
+    annotations_file = '/shared/xudongliu/bdd100k/labels/bdd100k_labels_images_det_coco_val.json'
+    labels_target_folder = '/shared/xudongliu/bdd100k/labels/voc_val'
     # data_folder = '/home/dl/1TB-Volumn/MSCOCO2017/train2017'
 
 
