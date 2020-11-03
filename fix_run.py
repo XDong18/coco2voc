@@ -4,7 +4,7 @@ from tqdm import tqdm
 
 
 if __name__ == "__main__":
-    tar_dir = '/shared/xudongliu/bdd100k/labels/voc_val'
+    tar_dir = '/shared/xudongliu/bdd100k/labels/voc_val/class_labels'
     coco_fn = '/shared/xudongliu/bdd100k/labels/bdd100k_labels_images_det_coco_val.json'
     coco = COCO(coco_fn)
     imgs = coco.imgs
