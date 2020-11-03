@@ -12,5 +12,5 @@ if __name__ == "__main__":
     for fn in tqdm(fns):
         if fn.split('.')[0] not in ref_name:
             os.remove(os.path.join(tar_dir, fn))
-            print(fn)
+            print(fn, fn.split('.')[0])
             break
