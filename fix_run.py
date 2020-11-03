@@ -9,6 +9,7 @@ if __name__ == "__main__":
     coco = COCO(coco_fn)
     imgs = coco.imgs
     for img in tqdm(imgs):
+        info = imgs[img]
         sur_fn = os.path.join(tar_dir, str(img) + '.png')
-        des_fn = os.path.join(tar_dir, img['file_name'].split('.')[0] + '.png')
+        des_fn = os.path.join(tar_dir, info['file_name'].split('.')[0] + '.png')
         os.rename(sur_fn, des_fn)
