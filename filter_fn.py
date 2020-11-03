@@ -9,9 +9,13 @@ if __name__ == "__main__":
     fns = os.listdir(tar_dir)
     ref_fns = os.listdir(ref_dir)
     ref_name = [fn.split('.')[0] for fn in ref_fns]
-    print(ref_name[0])
-    for fn in tqdm(fns):
-        if fn.split('.')[0] not in ref_name:
-            os.remove(os.path.join(tar_dir, fn))
-            print(fn, fn.split('.')[0])
-            break
+    tar_name = [fn.split('.')[0] for fn in fns]
+    diff = [x for x in tar_name if x not in ref_name]
+    print(diff)
+    print(len(diff))
+    # print(ref_name[0])
+    # for fn in tqdm(fns):
+    #     if fn.split('.')[0] not in ref_name:
+    #         os.remove(os.path.join(tar_dir, fn))
+    #         print(fn, fn.split('.')[0])
+    #         break
